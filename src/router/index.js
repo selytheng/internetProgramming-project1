@@ -1,11 +1,14 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Homeview from "@/views/Homeview.vue";
 import HomePageview from "@/views/HomePageview.vue";
+import MenuPageview from "@/views/MenuPageview.vue";
 import SignUpview from "@/views/SignUpview.vue";
 import Singinview from "@/views/Singinview.vue";
 import ForgotPwdview from "@/views/ForgotPwdview.vue";
 import NewPassword from "@/views/NewPassword.vue";
-import HotviewVue from "@/views/Hotview.vue";
+import Hotview from "@/views/Hotview.vue";
+import Iceview from "@/views/Iceview.vue";
+import Frappeview from "@/views/Frappeview.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -21,9 +24,24 @@ const router = createRouter({
       component: HomePageview,
     },
     {
+      path: "/Menu",
+      name: "menuview",
+      component: MenuPageview,
+    },
+    {
       path: "/Hot",
       name: "hotview",
-      component: HotviewVue,
+      component: Hotview,
+    },
+    {
+      path: "/Ice",
+      name: "iceview",
+      component: Iceview,
+    },
+    {
+      path: "/Frappe",
+      name: "frappeview",
+      component: Frappeview,
     },
     {
       path: "/signup",

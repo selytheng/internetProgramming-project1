@@ -63,7 +63,7 @@ import Promotion from "@/components/Promotion.vue";
 import Card from "@/components/Card.vue";
 import Footer from "@/components/Footer.vue";
 export default {
-  name: "Hotview",
+  name: "Iceview",
   components: {
     Navbar,
     Button,

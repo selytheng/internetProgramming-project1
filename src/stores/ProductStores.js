@@ -5,14 +5,17 @@ export const useProductStore = defineStore("Product_Store", {
   state: () => ({
     Button: [
       {
+        RouterLink: "/Hot",
         btn_bg: "#3a5553",
         btn_text: "Hot",
       },
       {
+        RouterLink: "/Ice",
         btn_bg: "#3a5553",
         btn_text: "ICE",
       },
       {
+        RouterLink: "/Frappe",
         btn_bg: "#3a5553",
         btn_text: "FRAPPE",
       },

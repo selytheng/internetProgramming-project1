@@ -6,10 +6,18 @@
     </div>
     <div class="navbar_list">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Product</a></li>
-        <li><a href="#">Location</a></li>
+        <RouterLink to="/HomePage" style="text-decoration: none"
+          ><li>Home</li></RouterLink
+        >
+        <RouterLink to="/Menu" style="text-decoration: none"
+          ><li>Menu</li></RouterLink
+        >
+        <RouterLink to="/Hot" style="text-decoration: none"
+          ><li>Product</li></RouterLink
+        >
+        <RouterLink to="/Location" style="text-decoration: none"
+          ><li>Location</li></RouterLink
+        >
       </ul>
     </div>
     <div class="navbar_account">
@@ -18,7 +26,7 @@
         <li><i class="uil uil-shopping-cart"></i></li>
         <li>
           <div class="dropdown">
-            <button class="dropbtn">Account</button>
+            <button class="dropbtn">Admin</button>
             <div
               class="dropdown-content"
               id="dropdown"
@@ -67,17 +75,19 @@ h1 {
 .navbar_home .navbar_list ul {
   font-size: 22px;
   display: flex;
-  justify-content: space-between;
+  gap: 60px;
+  justify-content: center;
   align-items: center;
-  gap: 70px;
   list-style: none;
 }
-.navbar_home .navbar_list ul li a {
+.navbar_home .navbar_list ul li {
   color: var(--text_white);
   text-decoration: none;
+  padding-top: 5px;
 }
-.navbar_home .navbar_list ul li a:hover {
+.navbar_home .navbar_list ul li:hover {
   color: var(--primary);
+  text-decoration: underline var(--primary);
 }
 .navbar_home .navbar_account ul {
   color: var(--text_white);
@@ -89,13 +99,13 @@ h1 {
   list-style: none;
 }
 .navbar_home .navbar_account ul .uil {
-  font-size: 35px;
+  font-size: 32px;
   color: var(--primary);
 }
 .dropbtn {
   background-color: var(--secondary);
   color: white;
-  padding: 16px;
+  padding: 10px;
   font-size: 16px;
   border: none;
 }
@@ -144,4 +154,59 @@ h1 {
 }
 
 /* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+.header-bottom-right-icon {
+  display: none;
+  /* background-color: yellow; */
+}
+
+/* Small (sm) */
+@media only screen and (max-width: 768px) {
+  .navbar_home {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar_home .navbar_list ul {
+    /* flex-direction: column;
+    text-align: center;
+    gap: 20px; */
+    display: none;
+  }
+
+  .navbar_home .navbar_account ul {
+    /* flex-direction: column;
+    text-align: center;
+    gap: 20px; */
+    display: none;
+  }
+}
+
+/* Medium (md) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar_home {
+    flex-direction: row;
+  }
+  /* .navbar_logo {
+    display: none;
+  } */
+  .navbar_home .navbar_list {
+    flex-direction: row;
+    /* margin-left: 160px; */
+  }
+
+  .navbar_home .navbar_account ul {
+    display: none;
+  }
+}
+
+/* Large (lg) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  /* Styles for lg screens go here */
+}
+
+/* Extra Large (xl) */
+@media (min-width: 1200px) {
+  /* Styles for xl screens go here */
+}
 </style>

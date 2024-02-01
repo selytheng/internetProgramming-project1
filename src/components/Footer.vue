@@ -1,6 +1,6 @@
 <template>
   <div class="container_footer">
-    <div class="session_one">
+    <div class="session_footer">
       <img src="../assets/image/logo_big.png" alt="" />
       <div class="text_location">
         <div class="super_text">OUR LOCATION</div>
@@ -60,40 +60,40 @@ export default {
   background-color: var(--secondary);
   padding: 30px;
 }
-.container_footer .session_one {
+.container_footer .session_footer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.container_footer .session_one img {
+.container_footer .session_footer img {
   width: 230px;
 }
-.container_footer .session_one .text_location {
+.container_footer .session_footer .text_location {
   width: 900px;
   margin-left: 250px;
   margin-top: 30px;
 }
-.container_footer .session_one .text_location .super_text {
+.container_footer .session_footer .text_location .super_text {
   font-family: "Poppins", sans-serif;
   color: var(--text_white);
   font-size: 50px;
   margin-left: 50px;
   margin-bottom: 20px;
 }
-.container_footer .session_one .text_location .text_one {
+.container_footer .session_footer .text_location .text_one {
   color: var(--text_white);
   font-weight: 200;
   font-size: 20px;
   padding-bottom: 10px;
 }
-.container_footer .session_one .text_location .text_two {
+.container_footer .session_footer .text_location .text_two {
   color: var(--text_white);
   font-weight: 200;
   font-size: 20px;
   padding-left: 80px;
   padding-bottom: 10px;
 }
-.container_footer .session_one .text_location .text_three {
+.container_footer .session_footer .text_location .text_three {
   color: var(--text_white);
   font-weight: 200;
   font-size: 20px;

@@ -1,11 +1,13 @@
 <template>
   <div class="container_homepage">
-    <div class="">
+    <div>
       <Navbar />
     </div>
+    <!-- Seesion 1 -->
     <div class="session_one">
       <div class="Big_title">Fresh Coffee In The Morning</div>
     </div>
+    <!-- Seesion 2 -->
     <div class="session_two">
       <div class="Feature_title">Featured Coffees</div>
       <div class="top_coffee">
@@ -107,18 +109,25 @@
         </div>
       </div>
     </div>
+    <!-- Seesion 3 -->
     <div class="session_three">
       <div class="Big_booking">Booking Coffee - on Monday, April 24, 2023</div>
+    </div>
+    <!-- Seesion 4 -->
+    <div class="seesion_four">
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
 export default {
   name: "HomePageview",
   components: {
     Navbar,
+    Footer,
   },
 };
 </script>
@@ -136,7 +145,6 @@ export default {
 }
 .container_homepage .session_one {
   height: 800px;
-
   background: url(../assets/image/background_café.png) no-repeat;
   background-size: cover;
   background-position: center;
@@ -217,5 +225,9 @@ export default {
   font-weight: 600;
   color: var(--secondary);
   text-align: center;
+}
+.container_homepage .session_four {
+  height: 500px;
+  padding: 30px;
 }
 </style>

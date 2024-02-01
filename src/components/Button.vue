@@ -1,15 +1,18 @@
 <template>
   <div class="container_button" :style="{ backgroundColor: btn_bg }">
     <div class="btn_hot">
-      <a href="#">{{ btn_text }}</a>
+      <a :href="RouterLink">{{ btn_text }}</a>
+      <!-- <RouterLink :to="RouterLink">{{ btn_text }}</RouterLink> -->
     </div>
   </div>
 </template>
 
 <script>
+import { RouterLink } from "vue-router";
+
 export default {
   name: "Button",
-  props: ["btn_text", "btn_bg"],
+  props: ["btn_text", "btn_bg", "RouterLink"],
 };
 </script>
 <style>
@@ -36,12 +39,12 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.container_button .btn_hot a{
-    color: var(--text_white);
-    text-decoration: none;
-    font-size: 23px;
+.container_button .btn_hot a {
+  color: var(--text_white);
+  text-decoration: none;
+  font-size: 23px;
 }
-.container_button .btn_hot a:hover{
-    color: var(--primary);
+.container_button .btn_hot a:hover {
+  color: var(--primary);
 }
 </style>
