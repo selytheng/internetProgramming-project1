@@ -29,24 +29,25 @@
       <Card
         v-for="i in Card"
         :key="i.Card"
-        :bg_card="i.bg_card"
-        :img_card="i.img_card"
-        :super_text="i.super_text"
-        :sub_text="i.sub_text"
-        :dollar_card="i.dollar_card" />
+        :bg_card="i.bg_card_hot"
+        :img_card="i.img_card_hot"
+        :super_text="i.super_text_hot"
+        :sub_text="i.sub_text_hot"
+        :dollar_card="i.dollar_card_hot" />
     </div>
     <div class="drink_month">
       <span>Drink of the month</span>
     </div>
+    <!-- Card -->
     <div class="card_hot">
       <Card
         v-for="i in Card"
         :key="i.Card"
-        :bg_card="i.bg_card"
-        :img_card="i.img_card"
-        :super_text="i.super_text"
-        :sub_text="i.sub_text"
-        :dollar_card="i.dollar_card" />
+        :bg_card="i.bg_card_hot"
+        :img_card="i.img_card_hot"
+        :super_text="i.super_text_hot"
+        :sub_text="i.sub_text_hot"
+        :dollar_card="i.dollar_card_hot" />
     </div>
     <div class="">
       <Footer />
@@ -141,7 +142,7 @@ export default {
   display: flex;
   justify-content: space-between;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
 }
 .drink_month {
   padding: 0px 0px 30px 40px;

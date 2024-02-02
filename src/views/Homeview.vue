@@ -1,16 +1,11 @@
 <template>
   <div>This is Home Page</div>
-  <Footer />
-  <!-- <Navbar /> -->
-  <!-- <button type="button" class="btn btn-primary">Primary Button</button> -->
 </template>
 
 <script>
-import Footer from "@/components/Footer.vue";
-import Navbar from "@/components/Navbar.vue";
 export default {
   name: "Homeview",
-  components: { Footer, Navbar },
+  // components: { Footer },
 };
 </script>
 

@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "Card",
+  name: "CardFrappe",
   props: ["bg_card", "img_card", "super_text", "sub_text", "dollar_card"],
 };
 </script>
@@ -74,7 +74,7 @@ export default {
   font-size: 30px;
   font-weight: 600;
   color: var(--secondary);
-  padding-left: 30px;
+  padding-left: 12px;
 }
 .container_card .suptext_card {
   width: 300px;

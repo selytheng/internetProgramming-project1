@@ -15,9 +15,9 @@
       <i class="uil uil-angle-left"></i>
       <span><a href="#" style="color: var(--text_gray)">Product</a></span>
       <i class="uil uil-angle-left"></i>
-      <span><a href="#" style="font-weight: 600">Hot</a></span>
+      <span><a href="#" style="font-weight: 600">Frappe</a></span>
     </div>
-    <div class="promotion_hot">
+    <div class="promotion_frappe">
       <!-- Promotion -->
       <Promotion />
     </div>
@@ -25,28 +25,28 @@
       <i class="uil uil-fire"></i>
       <span>Popular</span>
     </div>
-    <div class="card_hot">
-      <Card
-        v-for="i in Card"
-        :key="i.Card"
-        :bg_card="i.bg_card"
-        :img_card="i.img_card"
-        :super_text="i.super_text"
-        :sub_text="i.sub_text"
-        :dollar_card="i.dollar_card" />
+    <div class="card_frappe">
+      <CardFrappe
+        v-for="i in CardFrappe"
+        :key="i.CardFrappe"
+        :bg_card="i.bg_card_frappe"
+        :img_card="i.img_card_frappe"
+        :super_text="i.super_text_frappe"
+        :sub_text="i.sub_text_frappe"
+        :dollar_card="i.dollar_card_frappe" />
     </div>
     <div class="drink_month">
       <span>Drink of the month</span>
     </div>
-    <div class="card_hot">
-      <Card
-        v-for="i in Card"
-        :key="i.Card"
-        :bg_card="i.bg_card"
-        :img_card="i.img_card"
-        :super_text="i.super_text"
-        :sub_text="i.sub_text"
-        :dollar_card="i.dollar_card" />
+    <div class="card_frappe">
+      <CardFrappe
+        v-for="i in CardFrappe"
+        :key="i.CardFrappe"
+        :bg_card="i.bg_card_frappe"
+        :img_card="i.img_card_frappe"
+        :super_text="i.super_text_frappe"
+        :sub_text="i.sub_text_frappe"
+        :dollar_card="i.dollar_card_frappe" />
     </div>
     <div class="">
       <Footer />
@@ -60,7 +60,8 @@ import { mapState } from "pinia";
 import Navbar from "@/components/Navbar.vue";
 import Button from "@/components/Button.vue";
 import Promotion from "@/components/Promotion.vue";
-import Card from "@/components/Card.vue";
+// import Card from "@/components/Card.vue";
+import CardFrappe from "@/components/CardFrappe.vue";
 import Footer from "@/components/Footer.vue";
 export default {
   name: "Frappeview",
@@ -68,13 +69,14 @@ export default {
     Navbar,
     Button,
     Promotion,
-    Card,
+    CardFrappe,
     Footer,
+    CardFrappe,
   },
 
   computed: {
     ...mapState(useProductStore, ["Button"]),
-    ...mapState(useProductStore, ["Card"]),
+    ...mapState(useProductStore, ["CardFrappe"]),
     // ...mapState(useProductStore, ["Promotions"]),
     // ...mapState(useProductStore, ["Product"]),
   },
@@ -116,7 +118,7 @@ export default {
 .text_icon .uil {
   font-size: 30px;
 }
-.promotion_hot {
+.promotion_frappe {
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -136,12 +138,12 @@ export default {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
 }
-.card_hot {
+.card_frappe {
   padding: 10px 40px 20px 40px;
   display: flex;
   justify-content: space-between;
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
 }
 .drink_month {
   padding: 0px 0px 30px 40px;

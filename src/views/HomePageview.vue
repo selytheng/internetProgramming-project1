@@ -6,6 +6,11 @@
     <!-- Seesion 1 -->
     <div class="session_one">
       <div class="Big_title">Fresh Coffee In The Morning</div>
+      <button type="button" class="btn-lang">
+        <RouterLink to="/signin" style="text-decoration: none; color: white"
+          >ORDER NOW</RouterLink
+        >
+      </button>
     </div>
     <!-- Seesion 2 -->
     <div class="session_two">
@@ -229,5 +234,19 @@ export default {
 .container_homepage .session_four {
   height: 500px;
   padding: 30px;
+}
+.btn-lang {
+  border: none;
+  height: 60px;
+  width: 230px;
+  border-radius: 50px;
+  color: var(--text_white);
+  background-color: var(--primary);
+  font-size: 25px;
+  margin: 70px 0px 0px 160px;
+  transition: box-shadow 0.3s ease;
+}
+.btn-lang:hover {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 </style>
