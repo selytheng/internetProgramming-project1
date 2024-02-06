@@ -20,7 +20,13 @@
 <script>
 export default {
   name: "Card",
-  props: ["bg_card", "img_card", "super_text", "sub_text", "dollar_card"],
+  props: [
+          "bg_card", 
+          "img_card", 
+          "super_text", 
+          "sub_text", 
+          "dollar_card"
+        ],
 };
 </script>
 

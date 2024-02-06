@@ -16,100 +16,16 @@
     <div class="session_two">
       <div class="Feature_title">Featured Coffees</div>
       <div class="top_coffee">
-        <div class="top_one">
+        <div v-for="product in products.data" class="top_one">
           <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
+            <img :src="`http://127.0.0.1:8000/${product.image}`" alt="" />
           </div>
           <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
+            <div class="one_text_one">{{ product.name }}</div>
+            <div class="one_text_two">{{product.pricing}}$</div>
+            <!-- <div class="one_text_three">
               Milk Chocolate, Blueberry, Brown Sugar
-            </div>
-          </div>
-        </div>
-        <div class="top_one">
-          <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div>
-          </div>
-        </div>
-        <div class="top_one">
-          <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div>
-          </div>
-        </div>
-        <div class="top_one">
-          <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div>
-          </div>
-        </div>
-        <div class="top_one">
-          <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div>
-          </div>
-        </div>
-        <div class="top_one">
-          <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div>
-          </div>
-        </div>
-        <div class="top_one">
-          <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div>
-          </div>
-        </div>
-        <div class="top_one">
-          <div class="one_image">
-            <img src="../assets/image/coffee/hot5.png" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">Café Latte</div>
-            <div class="one_text_two">$3.99 – $5.99 [10%]</div>
-            <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -128,12 +44,35 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import fetchData from "@/services/fetchData";
 export default {
   name: "HomePageview",
   components: {
     Navbar,
     Footer,
   },
+  data(){
+    return {
+      products: []
+    }
+  },
+  mounted() {
+    this.getProducts()
+  },
+  methods: {
+    async getProducts(){
+      try {
+        this.products = await fetchData(
+        "GET",
+        "http://127.0.0.1:8000/api/v1/product",
+        null,
+      )
+      } catch (error) {
+        console.log("error")
+      }
+    }
+  }
+  
 };
 </script>
 

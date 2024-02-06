@@ -12,15 +12,15 @@
         >
       </div>
       <div>
-        <label for="floatingName" class="text-moon">Username</label>
+        <label for="floatingName" class="text-moon">Full name</label>
         <div class="form-floating mb-3">
           <input
-            v-model="text"
+            v-model="name"
             type="text"
             class="form-control"
             id="floatingName"
-            placeholder="usrename" />
-          <label for="floatingName">example@gmail.com</label>
+            placeholder="Full name" />
+          <label for="floatingName">Full name</label>
         </div>
         <label for="floatingName" class="text-moon">Email</label>
         <div class="form-floating mb-3">
@@ -28,27 +28,37 @@
             v-model="email"
             type="email"
             class="form-control"
-            id="floatingInput"
-            placeholder="Email" />
-          <label for="floatingInput">Password</label>
+            id="floatingName"
+            placeholder="usrename" />
+          <label for="floatingName">example@gmail.com</label>
         </div>
         <label for="floatingName" class="text-moon">Password</label>
-
-        <div class="form-floating">
+        <div class="form-floating mb-3">
           <input
             v-model="password"
             type="password"
             class="form-control"
+            id="floatingInput"
+            placeholder="Email" />
+          <label for="floatingInput">Password</label>
+        </div>
+        <label for="floatingName" class="text-moon">Confirm Password</label>
+    
+        <div class="form-floating">
+          <input
+            v-model="c_password"
+            type="password"
+            class="form-control"
             id="floatingPassword"
             placeholder="Password" />
-          <label for="floatingPassword">Password</label>
+          <label for="floatingPassword">Confirm Password</label>
         </div>
       </div>
       <div class="text-back mt-3">
         <a href="/"><span>back home</span></a>
       </div>
       <div class="d-grid gap-2 col-6 mx-auto p-3">
-        <a class="btn mt-4 btn-large" href="/" role="button">Sign up</a>
+        <button class="btn mt-4 btn-large" @click="register()" role="button">Sign up</button>
       </div>
       <!-- <div class="d-flex justify-content-center gap-5 col-6 mx-auto p-3">
         <a class="btn mt-4 btn-large ps-4 px-4" href="/" role="button">Sign up</a>
@@ -64,9 +74,37 @@
 </template>
 
 <script>
+import fetchData from '@/services/fetchData';
 export default {
   name: "SignUpview",
   components: {},
+  data(){
+    return {
+      name: "",
+      email: "",
+      password: "",
+      c_password: "",
+    }
+  },
+  methods: {
+    async register(){
+      try {
+        this.products = await fetchData(
+        "POST",
+        "http://127.0.0.1:8000/api/v1/auth/register",
+        {
+          "name": this.name,
+          "email": this.email,
+          "password": this.password,
+          "c_password": this.c_password
+        }
+      )
+      this.$router.push({name: "Signin"})
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
 };
 </script>
 

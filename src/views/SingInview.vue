@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="d-grid gap-2 col-6 mx-auto p-3">
-        <a class="btn mt-4 btn-large" href="/" role="button">Sing in</a>
+        <button class="btn mt-4 btn-large" @click="login()" role="button">Sing in</button>
       </div>
       <div class="container mx-auto mt-4 d-flex justify-content-center gap-4">
         <a href="/"><img src="../assets/image/facebook.png" alt="" /></a>
@@ -56,9 +56,35 @@
 </template>
 
 <script>
+import fetchData from '@/services/fetchData';
 export default {
   name: "Signinview",
   components: {},
+  data(){
+    return {
+      email: "",
+      password: "",
+    }
+  },
+  methods: {
+    async login(){
+      try {
+        const response = await fetchData(
+        "POST",
+        "http://127.0.0.1:8000/api/v1/auth/login",
+        {
+          "email": this.email,
+          "password": this.password,
+        }
+      )
+      localStorage.setItem("token", response.access_token);
+      localStorage.setItem("name", response.user.name);
+      this.$router.push({name: "homepage"})
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
 };
 </script>
 

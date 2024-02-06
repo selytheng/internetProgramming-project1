@@ -26,7 +26,7 @@
         <li><i class="uil uil-shopping-cart"></i></li>
         <li>
           <div class="dropdown">
-            <button class="dropbtn">Admin</button>
+            <button class="dropbtn">{{ name }}</button>
             <div
               class="dropdown-content"
               id="dropdown"
@@ -45,6 +45,11 @@
 <script>
 export default {
   name: "Navbar",
+  data(){
+    return {
+      name: localStorage.getItem('name')
+    }
+  }
 };
 </script>
 

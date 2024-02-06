@@ -4,12 +4,15 @@
     <div class="btn_three">
       <!-- Button -->
       <Button
-        v-for="i in Button"
-        :key="i.Button"
-        :btn_bg="i.btn_bg"
-        :btn_text="i.btn_text"
-        :RouterLink="i.RouterLink" />
+        v-for="category in categories"
+        :key="category.Button"
+        :btn_bg="category.btn_bg"
+        :btn_text="category.name"
+        :RouterLink="category.RouterLink" 
+        style="background-color: #3a5553;"/>
     </div>
+    
+    
     <div class="text_icon">
       <span><a href="#" style="color: var(--text_gray)">Home</a></span>
       <i class="uil uil-angle-left"></i>
@@ -25,29 +28,14 @@
       <i class="uil uil-fire"></i>
       <span>Popular</span>
     </div>
-    <div class="card_hot">
-      <Card
-        v-for="i in Card"
-        :key="i.Card"
-        :bg_card="i.bg_card_hot"
-        :img_card="i.img_card_hot"
-        :super_text="i.super_text_hot"
-        :sub_text="i.sub_text_hot"
-        :dollar_card="i.dollar_card_hot" />
-    </div>
-    <div class="drink_month">
-      <span>Drink of the month</span>
-    </div>
     <!-- Card -->
     <div class="card_hot">
       <Card
-        v-for="i in Card"
-        :key="i.Card"
-        :bg_card="i.bg_card_hot"
-        :img_card="i.img_card_hot"
-        :super_text="i.super_text_hot"
-        :sub_text="i.sub_text_hot"
-        :dollar_card="i.dollar_card_hot" />
+        v-for="product in products.data"
+        :key="product.Card"
+        :bg_card="product.bg_card_hot"
+        :img_card="`http://127.0.0.1:8000/${product.image}`"
+        :super_text="product.name" />
     </div>
     <div class="">
       <Footer />
@@ -63,6 +51,7 @@ import Button from "@/components/Button.vue";
 import Promotion from "@/components/Promotion.vue";
 import Card from "@/components/Card.vue";
 import Footer from "@/components/Footer.vue";
+import fetchData from "@/services/fetchData";
 export default {
   name: "Hotview",
   components: {
@@ -79,6 +68,40 @@ export default {
     // ...mapState(useProductStore, ["Promotions"]),
     // ...mapState(useProductStore, ["Product"]),
   },
+  data(){
+    return {
+      products: [],
+      categories: []
+    }
+  },
+  mounted() {
+    this.getProducts(),
+    this.getCategories()
+  },
+  methods: {
+    async getProducts(){
+      try {
+        this.products = await fetchData(
+        "GET",
+        "http://127.0.0.1:8000/api/v1/product",
+        null,
+      )
+      } catch (error) {
+        console.log("error")
+      }
+    },
+    async getCategories(){
+      try {
+        this.categories = await fetchData(
+        "GET",
+        "http://127.0.0.1:8000/api/v1/category",
+        null,
+      )
+      } catch (error) {
+        console.log("error")
+      }
+    }
+  }
 };
 </script>
 
@@ -101,6 +124,7 @@ export default {
   align-items: center;
   gap: 20px;
 }
+
 .text_icon {
   margin-top: 20px;
   margin-left: 30px;
