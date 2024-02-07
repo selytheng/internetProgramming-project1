@@ -10,35 +10,14 @@ use Illuminate\Validation\ValidationException;
 
 class CategoryController extends Controller
 {
-    
-    public function getAll()
-    {
-        $categories = Category::all();
-        return response()->json($categories, Response::HTTP_OK);
-    }
-
-    public function getById($id)
-    {
-        try {
-            $item = Category::find($id);
-            if (!$item) {
-                return response()->json(['message' => 'not found'], Response::HTTP_NOT_FOUND);
-            }
-            return response()->json($item, Response::HTTP_OK);
-        } catch (ValidationException $e) {
-            return $this->handleValidationException($e);
-        } catch (\Exception $e) {
-            return $this->handleUnexpectedException($e);
-        }
-    }
+    //create category
     public function create(Request $request){
         try {
             $item = $request->validate([
-                'name' => ['required', 'string', Rule::unique('categories')],
-                'description' => 'nullable|string',
+                'name'          => ['required', 'string', Rule::unique('categories')],
+                'description'   => 'nullable|string',
             ]);
             Category::create($item);
-
             return response()->json($item, Response::HTTP_CREATED);
         } catch (ValidationException $e) {
             return $this->handleValidationException($e);
@@ -47,11 +26,19 @@ class CategoryController extends Controller
         }
     }
 
+    // view all category
+    public function getAll()
+    {
+        $categories = Category::all();
+        return response()->json($categories, Response::HTTP_OK);
+    }
+
+    //update  category
     public function update(Request $request, $id){
         try {
             $item = $request->validate([
-                'name' => ['nullable', 'string', Rule::unique('categories')],
-                'description' => 'nullable|string',
+                'name'          => ['nullable', 'string', Rule::unique('categories')],
+                'description'   => 'nullable|string',
             ]);
             $categoryUpdated = Category::find($id);
             if (!$categoryUpdated){
@@ -67,6 +54,7 @@ class CategoryController extends Controller
         }
     }
 
+    // delete category
     public function delete($id){
         try {
             $categoryDeleted = Category::find($id);
@@ -84,15 +72,13 @@ class CategoryController extends Controller
     }
 
 
+    // to handle error from user input
 
-
-
-    //:::::::::::::::::::::>
     protected function handleValidationException(ValidationException $e)
     {
         return response()->json([
-            'message' => 'Validation Error',
-            'errors' => $e->errors(),
+            'message'   => 'Validation Error',
+            'errors'    => $e->errors(),
         ], Response::HTTP_BAD_REQUEST);
     }
 

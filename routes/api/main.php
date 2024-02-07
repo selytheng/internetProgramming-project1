@@ -2,19 +2,19 @@
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-//:::::::::::::>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Auth
+
+//  Auth
 Route::group(['prefix' => 'auth'], function () {
     require(__DIR__ . '/auth.php');
 });
 
+// user can view all product without login
 Route::get('product/', [ProductController::class, 'getAll']);
-Route::get('product/{id}', [ProductController::class, 'getById']);
 
-//:::::::::::::>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Authenticated
+//  Authenticated
 Route::group(['middleware' => 'auth'], function () {
-    // :::::::::::::>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Category
+    //  Category
     require(__DIR__ . '/category.php');
-    // :::::::::::::>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Category
+    //  Product
     require(__DIR__ . '/product.php');
-    
 });
