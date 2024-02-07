@@ -5,21 +5,21 @@
       <img src="../assets/image/logo_big.png" alt="" />
     </div>
     <div class="navbar_list">
-      <ul>
-        <RouterLink to="/HomePage" style="text-decoration: none"
-          ><li>Home</li></RouterLink
-        >
-        <RouterLink to="/Menu" style="text-decoration: none"
-          ><li>Menu</li></RouterLink
-        >
-        <RouterLink to="/Hot" style="text-decoration: none"
-          ><li>Product</li></RouterLink
-        >
-        <RouterLink to="/Location" style="text-decoration: none"
-          ><li>Location</li></RouterLink
-        >
-      </ul>
-    </div>
+    <ul>
+      <router-link to="/HomePage" exact active-class="active-link" style="text-decoration: none">
+        <li>Home</li>
+      </router-link>
+      <router-link to="/Menu" exact active-class="active-link" style="text-decoration: none">
+        <li>Menu</li>
+      </router-link>
+      <router-link to="/Hot" exact active-class="active-link" style="text-decoration: none">
+        <li>Product</li>
+      </router-link>
+      <router-link to="/Location" exact active-class="active-link" style="text-decoration: none">
+        <li>Location</li>
+      </router-link>
+    </ul>
+  </div>
     <div class="navbar_account">
       <ul>
         <li><i class="uil uil-search-alt"></i></li>
@@ -32,8 +32,7 @@
               id="dropdown"
               @change="handleSelectionChange">
               <div class="account"><a href="#">Account</a></div>
-              <div class="login"><a href="#">Log In</a></div>
-              <div class="logout"><a href="#">Log Out</a></div>
+              <div class="logout"><a href="signin">Log Out</a></div>
             </div>
           </div>
         </li>
@@ -61,6 +60,9 @@ export default {
   --quinary: #e2edec;
   --text_white: #ffffff;
   --text_gray: #8e9090;
+}
+.active-link {
+    font-weight: bold;
 }
 h1 {
   font-size: 100px;
@@ -214,4 +216,5 @@ h1 {
 @media (min-width: 1200px) {
   /* Styles for xl screens go here */
 }
+
 </style>

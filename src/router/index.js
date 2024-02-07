@@ -3,12 +3,13 @@ import Homeview from "@/views/Homeview.vue";
 import HomePageview from "@/views/HomePageview.vue";
 import MenuPageview from "@/views/MenuPageview.vue";
 import SignUpview from "@/views/SignUpview.vue";
-import Singinview from "@/views/Singinview.vue";
+import Singinview from "@/views/SingInview.vue";
 import ForgotPwdview from "@/views/ForgotPwdview.vue";
 import NewPassword from "@/views/NewPassword.vue";
 import Hotview from "@/views/Hotview.vue";
 import Iceview from "@/views/Iceview.vue";
 import Frappeview from "@/views/Frappeview.vue";
+import LocationView from "@/views/locationView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -66,6 +67,10 @@ const router = createRouter({
       path: "/newpwd",
       name: "NewPassword",
       component: NewPassword,
+    },
+    {
+      path: '/Location',
+      component: LocationView
     },
   ],
 });
