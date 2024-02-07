@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Homeview from "@/views/Homeview.vue";
+// import Homeview from "@/views/Homeview.vue";
 import HomePageview from "@/views/HomePageview.vue";
 import MenuPageview from "@/views/MenuPageview.vue";
 import SignUpview from "@/views/SignUpview.vue";
@@ -9,17 +9,18 @@ import NewPassword from "@/views/NewPassword.vue";
 import Hotview from "@/views/Hotview.vue";
 import Iceview from "@/views/Iceview.vue";
 import Frappeview from "@/views/Frappeview.vue";
+import LocationPage from "@/views/LocationPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // {
+    //   path: "/",
+    //   name: "home",
+    //   component: Homeview,
+    // },
     {
       path: "/",
-      name: "home",
-      component: Homeview,
-    },
-    {
-      path: "/HomePage",
       name: "homepage",
       component: HomePageview,
     },
@@ -27,6 +28,11 @@ const router = createRouter({
       path: "/Menu",
       name: "menuview",
       component: MenuPageview,
+    },
+    {
+      path: "/Location",
+      name: "LocationPage",
+      component: LocationPage,
     },
     {
       path: "/Hot",

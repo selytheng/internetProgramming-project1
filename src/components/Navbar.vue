@@ -6,7 +6,7 @@
     </div>
     <div class="navbar_list">
       <ul>
-        <RouterLink to="/HomePage" style="text-decoration: none"
+        <RouterLink to="/" style="text-decoration: none"
           ><li>Home</li></RouterLink
         >
         <RouterLink to="/Menu" style="text-decoration: none"
