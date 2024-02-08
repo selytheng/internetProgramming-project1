@@ -12,7 +12,9 @@
     <div class="suptext_card">{{ sub_text }}</div>
     <div class="btn_card">
       <div class="dollar_card">{{ dollar_card }}</div>
-      <div class="btn_order">Order Now</div>
+      <button> 
+        <div class="btn_order">Order Now</div>
+      </button>
     </div>
   </div>
 </template>
@@ -36,6 +38,11 @@ export default {
 .container_card img{
   width:500px;
 }
+button{
+  border: none;
+  background: none;
+}
+
 :root {
   --primary: #f9c06a;
   --secondary: #3a5553;
@@ -113,4 +120,5 @@ export default {
   align-items: center;
   color: var(--text_white);
 }
+
 </style>
