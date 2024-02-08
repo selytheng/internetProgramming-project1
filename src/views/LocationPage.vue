@@ -2,9 +2,9 @@
   <div class="">
     <Navbar />
   </div>
-  <!-- contact section -->
-  <Contact />
-  <!-- end contact section -->
+  <div class="">
+    <Contact />
+  </div>
   <div class="footer_container">
     <Footer />
   </div>
