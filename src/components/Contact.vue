@@ -4,7 +4,7 @@
   <section class="contact_section layout_padding">
     <div class="container px-0">
       <div class="heading_container">
-        <h2 class="">Contact Us</h2>
+        <h2 class="" style="color: #3a5553">Contact Us</h2>
       </div>
     </div>
     <div class="container container-bg">
@@ -13,7 +13,7 @@
           <div class="map_container">
             <div class="map-responsive">
               <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Institute+of+Technology+of+Cambodia"
                 width="600"
                 height="300"
                 frameborder="0"
