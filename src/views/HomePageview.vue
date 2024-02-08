@@ -119,6 +119,10 @@
       <div class="Big_booking">Booking Coffee - on Monday, April 24, 2023</div>
     </div>
     <!-- Seesion 4 -->
+    <div class="seesion_five">
+      <contact />
+    </div>
+    <!-- Seesion 5 -->
     <div class="seesion_four">
       <Footer />
     </div>
@@ -128,11 +132,13 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import Contact from "@/components/Contact.vue";
 export default {
   name: "HomePageview",
   components: {
     Navbar,
     Footer,
+    Contact,
   },
 };
 </script>
@@ -248,5 +254,12 @@ export default {
 }
 .btn-lang:hover {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+.seesion_five {
+  margin-top: 20px;
+}
+.seesion_four {
+  margin-top: 70px;
+  margin-bottom: 30px;
 }
 </style>
