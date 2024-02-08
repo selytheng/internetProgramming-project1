@@ -6,13 +6,440 @@
   <div class="container_menu">
     <div class="menu_left">
       <div class="menu_left_hot">Hot</div>
-      <div class="">
-        <div class="menu_left_hot_left"></div>
-        <div class="menu_left_hot_rigth"></div>
+
+      <div
+        style="
+          font-size: 25px;
+          color: #f9c06a;
+          font-weight: 800;
+          display: flex;
+          justify-content: end;
+          padding: 0px 45px 0px 0px;
+        ">
+        S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L
+      </div>
+
+      <!-- type menu 1 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Espresso</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 2 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Cappuccino</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 3 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Latte</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 4 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Americano</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 5 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Thnol</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 6 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Mocha</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <div class="menu_left_ice">Ice</div>
+      <div
+        style="
+          font-size: 25px;
+          color: #f9c06a;
+          font-weight: 800;
+          display: flex;
+          justify-content: end;
+          padding: 0px 45px 0px 0px;
+        ">
+        S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L
+      </div>
+
+      <!-- type menu 1 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Espresso</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 2 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Cappuccino</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 3 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Latte</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 4 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Americano</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 5 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Thnol</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 6 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Mocha</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
       </div>
     </div>
     <div class="menu_rigth">
       <div class="menu_rigth_prappe">PRAPPE</div>
+      <div
+        style="
+          font-size: 25px;
+          color: #f9c06a;
+          font-weight: 800;
+          display: flex;
+          justify-content: end;
+          padding: 0px 45px 0px 0px;
+        ">
+        S &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; L
+      </div>
+      <!-- type menu 1 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Espresso Frappe</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 2 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Cappuccino Frappe</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 3 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Latte Frappe</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 4 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Americano Frappe</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 5 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Thnol Frappe</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
+
+      <!-- type menu 6 -->
+      <div class="menu_left_hot_type_row1">
+        <div>
+          <a
+            href="#"
+            style="
+              text-decoration: none;
+              color: #3a5553;
+              font-size: 23px;
+              font-weight: 600;
+            "
+            >Café Mocha Frappe</a
+          >
+          <div class="" style="font-size: 12px; color: gray; font-weight: 600">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          </div>
+        </div>
+        <div style="font-size: 18px; font-weight: 600">
+          $1.99 &nbsp;&nbsp;&nbsp; 2.99
+        </div>
+      </div>
     </div>
   </div>
   <div class="container_footer">
@@ -57,8 +484,8 @@ export default {
   padding: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  align-items: start;
+  gap: 70px;
   margin-top: 60px;
 }
 /* Menu_Left */
@@ -68,11 +495,26 @@ export default {
   border-radius: 10px;
 }
 .container_menu .menu_left .menu_left_hot {
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Poppins", sans-serif;
+  font-weight: 600;
   padding: 5px;
   border-top: 2px solid var(--secondary);
   border-bottom: 2px solid var(--secondary);
+}
+.container_menu .menu_left .menu_left_ice {
+  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  padding: 5px;
+  border-top: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--secondary);
+}
+.container_menu .menu_left .menu_left_hot_type_row1 {
+  padding: 20px 30px 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 /* Menu_Right */
 .container_menu .menu_rigth {
@@ -81,11 +523,18 @@ export default {
   border-radius: 10px;
 }
 .container_menu .menu_rigth .menu_rigth_prappe {
-  font-size: 40px;
+  font-size: 30px;
   font-family: "Poppins", sans-serif;
+  font-weight: 600;
   padding: 5px;
   border-top: 2px solid var(--secondary);
   border-bottom: 2px solid var(--secondary);
+}
+.container_menu .menu_rigth .menu_left_hot_type_row1 {
+  padding: 20px 30px 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
 }
 /* Footer */
 .container_footer {
