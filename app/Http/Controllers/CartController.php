@@ -46,19 +46,27 @@ class CartController extends BaseCrudController
         try {
             $request->validate([
                 'product_id' => 'required|integer',
+                'quantity' => 'required|integer|min:1', // Validating quantity
             ]);
-            // Check if the user has already added the product to the cart
+            
             $existingCartItem = $this->model::where('user_id', auth()->user()->id)
                 ->where('product_id', $request->product_id)
                 ->first();
 
             if ($existingCartItem) {
-                return response()->json(['message' => 'Product has already been added to the cart.'], Response::HTTP_CONFLICT);
+                // If the item exists, update the quantity
+                $existingCartItem->quantity += $request->quantity;
+                $existingCartItem->save();
+
+                return response()->json($existingCartItem, Response::HTTP_OK);
             }
-            $data = array(
+
+            // If the item does not exist, create a new cart item
+            $data = [
                 'user_id' => auth()->user()->id,
                 'product_id' => $request->product_id,
-            );
+                'quantity' => $request->quantity,
+            ];
             $item = $this->model::create($data);
             return response()->json($item, Response::HTTP_CREATED);
         } catch (ValidationException $e) {
@@ -67,6 +75,7 @@ class CartController extends BaseCrudController
             return $this->handleUnexpectedException($e);
         }
     }
+
     public function delete($id)
     {
         try {
