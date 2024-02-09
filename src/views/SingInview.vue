@@ -11,7 +11,7 @@
           ><span class="text-warning">Moon Café</span></a
         >
       </div>
-      <form action="/HomePage">
+      <div>
         <label for="floatingName" class="text-moon">Email or username</label>
         <div class="form-floating mb-3">
           <input
@@ -19,7 +19,8 @@
             type="email"
             class="form-control"
             id="floatingInput"
-            placeholder="Email" />
+            placeholder="Email"
+          />
           <label for="floatingInput">example@gmail.com</label>
         </div>
         <label for="floatingName" class="text-moon">Password</label>
@@ -30,25 +31,25 @@
             type="password"
             class="form-control"
             id="floatingPassword"
-            placeholder="Password" />
+            placeholder="Password"
+          />
           <label for="floatingPassword">Password</label>
         </div>
-        <div class="d-flex justify-content-start align-items-center gap-2">
+      </div>
+      <div class="d-flex justify-content-start align-items-center gap-2">
         <input type="checkbox" class="mt-4 w-20" />
         <div class="mt-4">
           Forgot your password?
-          <a class="text-decoration-none" href="/signup">
-            <span class="text-danger">sign up</span>
-          </a>
+          <a class="text-decoration-none" href="/signup"
+            ><span class="text-danger">sign up</span></a
+          >
         </div>
       </div>
       <div class="d-grid gap-2 col-6 mx-auto p-3">
-        <button type="submit" class="btn mt-4 btn-large" @click="login()" role="button">Sing in</button>
+        <button class="btn mt-4 btn-large" @click="login()" role="button">
+          Sing in
+        </button>
       </div>
-      </form>
-
-
-
       <div class="container mx-auto mt-4 d-flex justify-content-center gap-4">
         <a href="/"><img src="../assets/image/facebook.png" alt="" /></a>
         <a href="/"><img src="../assets/image/twitter.png" alt="" /></a>
@@ -59,35 +60,35 @@
 </template>
 
 <script>
-import fetchData from '@/services/fetchData';
+import fetchData from "@/services/fetchData";
 export default {
   name: "Signinview",
   components: {},
-  data(){
+  data() {
     return {
       email: "",
       password: "",
-    }
+    };
   },
   methods: {
-    async login(){
+    async login() {
       try {
         const response = await fetchData(
-        "POST",
-        "http://127.0.0.1:8000/api/v1/auth/login",
-        {
-          "email": this.email,
-          "password": this.password,
-        }
-      )
-      localStorage.setItem("token", response.access_token);
-      localStorage.setItem("name", response.user.name);
-      this.$router.push({name: "homepage"})
+          "POST",
+          "http://127.0.0.1:8000/api/v1/auth/login",
+          {
+            email: this.email,
+            password: this.password,
+          }
+        );
+        localStorage.setItem("token", response.access_token);
+        localStorage.setItem("name", response.user.name);
+        this.$router.push({ name: "homepage" });
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
