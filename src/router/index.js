@@ -11,6 +11,9 @@ import Iceview from "@/views/Iceview.vue";
 import Frappeview from "@/views/Frappeview.vue";
 import LocationPage from "@/views/LocationPage.vue";
 import CartVue from "@/views/Cart.vue";
+import addCategoryVue from "@/views/addCategory.vue";
+import CategoryTableVue from "@/views/CategoryTable.vue";
+import EditCategoryVue from "@/views/EditCategory.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -76,6 +79,20 @@ const router = createRouter({
     {
       path: "/Cart",
       component: CartVue,
+    },
+    {
+      path: "/addcategory",
+      component: addCategoryVue,
+    },
+    {
+      path: "/category",
+      name: "CategoryTable",
+      component: CategoryTableVue,
+    },
+    {
+      path: "/editcategory/:id",
+      name: "Edit cate",
+      component: EditCategoryVue,
     },
   ],
 });
