@@ -5,32 +5,57 @@
       <img src="../assets/image/logo_big.png" alt="" />
     </div>
     <div class="navbar_list">
-    <ul>
-      <router-link to="/HomePage" exact active-class="active-link" style="text-decoration: none">
-        <li>Home</li>
-      </router-link>
-      <router-link to="/Menu" exact active-class="active-link" style="text-decoration: none">
-        <li>Menu</li>
-      </router-link>
-      <router-link to="/Hot" exact active-class="active-link" style="text-decoration: none">
-        <li>Product</li>
-      </router-link>
-      <router-link to="/Location" exact active-class="active-link" style="text-decoration: none">
-        <li>Location</li>
-      </router-link>
-    </ul>
-  </div>
+      <ul>
+        <router-link
+          to="/HomePage"
+          exact
+          active-class="active-link"
+          style="text-decoration: none"
+        >
+          <li>Home</li>
+        </router-link>
+        <router-link
+          to="/Menu"
+          exact
+          active-class="active-link"
+          style="text-decoration: none"
+        >
+          <li>Menu</li>
+        </router-link>
+        <router-link
+          to="/Hot"
+          exact
+          active-class="active-link"
+          style="text-decoration: none"
+        >
+          <li>Product</li>
+        </router-link>
+        <router-link
+          to="/Location"
+          exact
+          active-class="active-link"
+          style="text-decoration: none"
+        >
+          <li>Location</li>
+        </router-link>
+      </ul>
+    </div>
     <div class="navbar_account">
       <ul>
-        <li><i class="uil uil-search-alt"></i></li>
-        <li><i class="uil uil-shopping-cart"></i></li>
+        <!-- <router-link to="/Search" style="text-decoration: none">
+          <li><i class="uil uil-search-alt"></i></li>
+        </router-link> -->
+        <router-link to="/Cart" style="text-decoration: none">
+          <li><i class="uil uil-shopping-cart"></i></li>
+        </router-link>
         <li>
           <div class="dropdown">
             <button class="dropbtn">{{ name }}</button>
             <div
               class="dropdown-content"
               id="dropdown"
-              @change="handleSelectionChange">
+              @change="handleSelectionChange"
+            >
               <div class="account"><a href="#">Account</a></div>
               <div class="logout"><a href="signin">Log Out</a></div>
             </div>
@@ -44,11 +69,11 @@
 <script>
 export default {
   name: "Navbar",
-  data(){
+  data() {
     return {
-      name: localStorage.getItem('name')
-    }
-  }
+      name: localStorage.getItem("name"),
+    };
+  },
 };
 </script>
 
@@ -62,7 +87,7 @@ export default {
   --text_gray: #8e9090;
 }
 .active-link {
-    font-weight: bold;
+  font-weight: bold;
 }
 h1 {
   font-size: 100px;
@@ -216,5 +241,4 @@ h1 {
 @media (min-width: 1200px) {
   /* Styles for xl screens go here */
 }
-
 </style>

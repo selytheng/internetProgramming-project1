@@ -12,7 +12,13 @@
     <div class="suptext_card">{{ sub_text }}</div>
     <div class="btn_card">
       <div class="dollar_card">{{ dollar_card }}</div>
-      <button> 
+      <input
+        type="number"
+        v-model="quantity"
+        min="1"
+        style="width: 60px; padding: 5px"
+      />
+      <button @click="addToCart()">
         <div class="btn_order">Order Now</div>
       </button>
     </div>
@@ -20,25 +26,58 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Card",
   props: [
-          "bg_card", 
-          "img_card", 
-          "super_text", 
-          "sub_text", 
-          "dollar_card"
-        ],
+    "bg_card",
+    "img_card",
+    "super_text",
+    "sub_text",
+    "dollar_card",
+    "productId",
+  ],
+  data() {
+    return {
+      quantity: 1,
+    };
+  },
+  methods: {
+    async addToCart() {
+      const productId = this.productId;
+      const quantity = this.quantity;
+
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/v1/cart/", // Add missing protocol in URL
+          { product_id: productId, quantity: quantity },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming you store the access token in localStorage
+            },
+          }
+        );
+        console.log("Product added to cart:", response.data);
+        // Update UI or show success message
+      } catch (error) {
+        console.error(
+          "Error adding product to cart:",
+          error.response ? error.response.data : error.message
+        );
+        // Handle error
+      }
+    },
+  },
 };
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,800;1,200&family=Quicksand:wght@400;600;700&family=Roboto:ital,wght@0,500;0,700;1,300&display=swap");
 @import "https://unicons.iconscout.com/release/v4.0.0/css/line.css";
-.container_card img{
-  width:500px;
+.container_card img {
+  width: 500px;
 }
-button{
+button {
   border: none;
   background: none;
 }
@@ -120,5 +159,4 @@ button{
   align-items: center;
   color: var(--text_white);
 }
-
 </style>
