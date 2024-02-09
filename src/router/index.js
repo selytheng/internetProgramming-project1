@@ -9,7 +9,8 @@ import NewPassword from "@/views/NewPassword.vue";
 import Hotview from "@/views/Hotview.vue";
 import Iceview from "@/views/Iceview.vue";
 import Frappeview from "@/views/Frappeview.vue";
-import LocationPage from "@/views/LocationPage.vue"
+import LocationPage from "@/views/LocationPage.vue";
+import CartVue from "@/views/Cart.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -69,8 +70,12 @@ const router = createRouter({
       component: NewPassword,
     },
     {
-      path: '/Location',
-      component: LocationPage
+      path: "/Location",
+      component: LocationPage,
+    },
+    {
+      path: "/Cart",
+      component: CartVue,
     },
   ],
 });
