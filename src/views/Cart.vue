@@ -88,7 +88,9 @@ export default {
           }
         );
         // Update the local cart items
-        const index = this.cartItems.findIndex((item) => item.id === itemId);
+        const index = this.cartItems.findIndex(
+          (item) => item.product_id === itemId
+        );
         if (index !== -1) {
           this.cartItems[index].quantity = newQuantity;
         }
@@ -99,9 +101,17 @@ export default {
 
     async removeItem(itemId) {
       try {
-        await axios.delete(`http://localhost:8000/api/v1/cart/${itemId}`);
-        // Remove the item from local cart items
-        this.cartItems = this.cartItems.filter((item) => item.id !== itemId);
+        const token = localStorage.getItem("token");
+        if (!token) {
+          console.error("No token found. User is not authenticated.");
+          return;
+        }
+        await axios.delete(`http://localhost:8000/api/v1/cart/${itemId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        location.reload();
       } catch (error) {
         console.error("Error removing item from cart:", error);
       }
