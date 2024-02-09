@@ -79,19 +79,17 @@ class CartController extends BaseCrudController
     public function delete($id)
     {
         try {
-            $item = $this->model::find($id);
+            $userId = auth()->user()->id;
+            $productId = $id;
 
-            if (!$item) {
-                return response()->json(['message' => $this->getModelName() . ' not found'], Response::HTTP_NOT_FOUND);
+            $cartItem = Cart::where('user_id', $userId)
+                            ->where('product_id', $productId)
+                            ->first();
+            if (!$cartItem) {
+                return response()->json(['message' => 'Cart item not found'], Response::HTTP_NOT_FOUND);
             }
 
-            if ($item->user_id != auth()->user()->id) {
-                return response()->json(['message' => $this->getModelName() . ' not found'], Response::HTTP_NOT_FOUND);
-            }
-
-            $item->delete();
-
-            return response()->json(['message' => $this->getModelName() . ' deleted successfully'], Response::HTTP_OK);
+            $cartItem->delete();
         } catch (ValidationException $e) {
             return $this->handleValidationException($e);
         } catch (\Exception $e) {
@@ -99,38 +97,38 @@ class CartController extends BaseCrudController
         }
     }
     public function update(Request $request, $id)
-{
-    try {
-        $userId = auth()->user()->id;
-        $productId = $id;
+    {
+        try {
+            $userId = auth()->user()->id;
+            $productId = $id;
 
-        // Validate request data
-        $request->validate([
-            'quantity' => 'required|integer|min:1', // Validate quantity
-        ]);
+            // Validate request data
+            $request->validate([
+                'quantity' => 'required|integer|min:1', // Validate quantity
+            ]);
 
-        // Find the cart item to update
-        $cartItem = Cart::where('user_id', $userId)
-                        ->where('product_id', $productId)
-                        ->first();
+            // Find the cart item to update
+            $cartItem = Cart::where('user_id', $userId)
+                            ->where('product_id', $productId)
+                            ->first();
 
-        // Check if the cart item exists
-        if (!$cartItem) {
-            return response()->json(['message' => 'Cart item not found'], Response::HTTP_NOT_FOUND);
+            // Check if the cart item exists
+            if (!$cartItem) {
+                return response()->json(['message' => 'Cart item not found'], Response::HTTP_NOT_FOUND);
+            }
+
+            // Update the quantity of the cart item
+            $cartItem->quantity = $request->quantity;
+            $cartItem->save();
+
+            // You might want to return the updated cart item here
+            return response()->json($cartItem, Response::HTTP_OK);
+        } catch (ValidationException $e) {
+            return $this->handleValidationException($e);
+        } catch (\Exception $e) {
+            return $this->handleUnexpectedException($e);
         }
-
-        // Update the quantity of the cart item
-        $cartItem->quantity = $request->quantity;
-        $cartItem->save();
-
-        // You might want to return the updated cart item here
-        return response()->json($cartItem, Response::HTTP_OK);
-    } catch (ValidationException $e) {
-        return $this->handleValidationException($e);
-    } catch (\Exception $e) {
-        return $this->handleUnexpectedException($e);
     }
-}
 
 
 
