@@ -8,11 +8,11 @@
         :key="category.Button"
         :btn_bg="category.btn_bg"
         :btn_text="category.name"
-        :RouterLink="category.RouterLink" 
-        style="background-color: #3a5553;"/>
+        :RouterLink="category.RouterLink"
+        style="background-color: #3a5553"
+      />
     </div>
-    
-    
+
     <div class="text_icon">
       <span><a href="#" style="color: var(--text_gray)">Home</a></span>
       <i class="uil uil-angle-left"></i>
@@ -35,7 +35,9 @@
         :key="product.Card"
         :bg_card="product.bg_card_hot"
         :img_card="`http://127.0.0.1:8000/${product.image}`"
-        :super_text="product.name" />
+        :super_text="product.name"
+        :productId="product.id"
+      />
     </div>
     <div class="">
       <Footer />
@@ -68,40 +70,39 @@ export default {
     // ...mapState(useProductStore, ["Promotions"]),
     // ...mapState(useProductStore, ["Product"]),
   },
-  data(){
+  data() {
     return {
       products: [],
-      categories: []
-    }
+      categories: [],
+    };
   },
   mounted() {
-    this.getProducts(),
-    this.getCategories()
+    this.getProducts(), this.getCategories();
   },
   methods: {
-    async getProducts(){
+    async getProducts() {
       try {
         this.products = await fetchData(
-        "GET",
-        "http://127.0.0.1:8000/api/v1/product",
-        null,
-      )
+          "GET",
+          "http://127.0.0.1:8000/api/v1/product",
+          null
+        );
       } catch (error) {
-        console.log("error")
+        console.log("error");
       }
     },
-    async getCategories(){
+    async getCategories() {
       try {
         this.categories = await fetchData(
-        "GET",
-        "http://127.0.0.1:8000/api/v1/category",
-        null,
-      )
+          "GET",
+          "http://127.0.0.1:8000/api/v1/category",
+          null
+        );
       } catch (error) {
-        console.log("error")
+        console.log("error");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
