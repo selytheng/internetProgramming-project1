@@ -3,6 +3,7 @@
     <div>
       <Navbar />
     </div>
+
     <!-- Seesion 1 -->
     <div class="session_one">
       <div class="Big_title">Fresh Coffee In The Morning</div>
@@ -12,32 +13,45 @@
         >
       </button>
     </div>
+
     <!-- Seesion 2 -->
     <div class="session_two">
       <div class="Feature_title">Featured Coffees</div>
       <div class="top_coffee">
         <div v-for="product in products.data" class="top_one">
-          <div class="one_image">
-            <img :src="`http://127.0.0.1:8000/${product.image}`" alt="" />
-          </div>
-          <div class="one_text">
-            <div class="one_text_one">{{ product.name }}</div>
-            <div class="one_text_two">{{product.pricing}}$</div>
-            <!-- <div class="one_text_three">
-              Milk Chocolate, Blueberry, Brown Sugar
-            </div> -->
-          </div>
+          <button>
+            <div class="one_image">
+              <img :src="`http://127.0.0.1:8000/${product.image}`" alt="" />
+            </div>
+            <div class="one_text">
+              <div class="one_text_one">{{ product.name }}</div>
+              <div class="one_text_two">{{product.pricing}}$</div>
+            </div>
+          </button>
+          
         </div>
       </div>
     </div>
+
     <!-- Seesion 3 -->
     <div class="session_three">
       <div class="Big_booking">Booking Coffee - on Monday, April 24, 2023</div>
     </div>
+
     <!-- Seesion 4 -->
+    <div class="seesion_five">
+      <CardSection />
+    </div>
+
+    <!-- Seesion 4 -->
+    <div class="seesion_five">
+      <Contact />
+    </div>
+    <!-- Seesion 5 -->
     <div class="seesion_four">
       <Footer />
     </div>
+    
   </div>
 </template>
 
@@ -45,11 +59,15 @@
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
 import fetchData from "@/services/fetchData";
+import Contact from "@/components/Contact.vue";
+import CardSection from "@/components/CardSection.vue"
 export default {
   name: "HomePageview",
   components: {
     Navbar,
     Footer,
+    Contact,
+    CardSection,
   },
   data(){
     return {
@@ -138,7 +156,35 @@ export default {
   border: 3px solid var(--secondary);
   text-align: center;
   margin-top: 30px;
+  padding: 0%;
+  margin: 0%;
 }
+
+.session_two .top_coffee .top_one:hover{
+
+  transform: scale(1.01);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.session_two .top_coffee .top_one img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.session_two .top_coffee .top_one:hover img {
+  transform: scale(1.1);
+}
+
+.session_two .top_coffee .top_one button{
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+}
+
 .session_two .top_coffee .top_one img {
   width: 200px;
 }

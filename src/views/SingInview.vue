@@ -11,7 +11,7 @@
           ><span class="text-warning">Moon Café</span></a
         >
       </div>
-      <div>
+      <form action="/HomePage">
         <label for="floatingName" class="text-moon">Email or username</label>
         <div class="form-floating mb-3">
           <input
@@ -33,19 +33,22 @@
             placeholder="Password" />
           <label for="floatingPassword">Password</label>
         </div>
-      </div>
-      <div class="d-flex justify-content-start align-items-center gap-2">
+        <div class="d-flex justify-content-start align-items-center gap-2">
         <input type="checkbox" class="mt-4 w-20" />
         <div class="mt-4">
           Forgot your password?
-          <a class="text-decoration-none" href="/signup"
-            ><span class="text-danger">sign up</span></a
-          >
+          <a class="text-decoration-none" href="/signup">
+            <span class="text-danger">sign up</span>
+          </a>
         </div>
       </div>
       <div class="d-grid gap-2 col-6 mx-auto p-3">
-        <button class="btn mt-4 btn-large" @click="login()" role="button">Sing in</button>
+        <button type="submit" class="btn mt-4 btn-large" @click="login()" role="button">Sing in</button>
       </div>
+      </form>
+
+
+
       <div class="container mx-auto mt-4 d-flex justify-content-center gap-4">
         <a href="/"><img src="../assets/image/facebook.png" alt="" /></a>
         <a href="/"><img src="../assets/image/twitter.png" alt="" /></a>
