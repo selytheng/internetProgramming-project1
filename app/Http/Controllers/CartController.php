@@ -31,7 +31,7 @@ class CartController extends BaseCrudController
 
             $items = Cart::join('products', 'carts.product_id', '=', 'products.id')
                 ->where('carts.user_id', $userId)
-                ->select('products.id as product_id', 'products.name', 'products.price', 'carts.id as cart_id', 'products.image as image')
+                ->select('products.id as product_id', 'products.name', 'products.pricing', 'carts.id as cart_id', 'products.image as image', 'carts.quantity')
                 ->get();
 
             return response()->json($items, Response::HTTP_OK);
@@ -98,4 +98,40 @@ class CartController extends BaseCrudController
             return $this->handleUnexpectedException($e);
         }
     }
+    public function update(Request $request, $id)
+{
+    try {
+        $userId = auth()->user()->id;
+        $productId = $id;
+
+        // Validate request data
+        $request->validate([
+            'quantity' => 'required|integer|min:1', // Validate quantity
+        ]);
+
+        // Find the cart item to update
+        $cartItem = Cart::where('user_id', $userId)
+                        ->where('product_id', $productId)
+                        ->first();
+
+        // Check if the cart item exists
+        if (!$cartItem) {
+            return response()->json(['message' => 'Cart item not found'], Response::HTTP_NOT_FOUND);
+        }
+
+        // Update the quantity of the cart item
+        $cartItem->quantity = $request->quantity;
+        $cartItem->save();
+
+        // You might want to return the updated cart item here
+        return response()->json($cartItem, Response::HTTP_OK);
+    } catch (ValidationException $e) {
+        return $this->handleValidationException($e);
+    } catch (\Exception $e) {
+        return $this->handleUnexpectedException($e);
+    }
+}
+
+
+
 }
