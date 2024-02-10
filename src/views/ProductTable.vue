@@ -7,6 +7,7 @@
           <th>Size</th>
           <th>Pricing</th>
           <th>Category</th>
+          <th>Size</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -15,21 +16,21 @@
           <td>{{ product.name }}</td>
           <td>{{ product.size }}</td>
           <td>{{ product.pricing }}</td>
-          <td>{{ product.category.name }}</td>
+          <td>{{ product.category_id }}</td>
+          <td>{{ product.size }}</td>
           <td>
-            <button @click="editProduct(product)">Edit</button>
-            <button @click="deleteProduct(product)">Delete</button>
+            <button @click="editProduct(product.id)">Edit</button>
+            <button @click="deleteProduct(product.id)">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <router-link to="/addcategory" class="add-prd-btn"
-      >Add Category</router-link
-    >
+    <router-link to="/addproduct" class="add-prd-btn">Add product</router-link>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -37,37 +38,39 @@ export default {
     };
   },
   methods: {
-    async fetchProducts() {
-      try {
-        const response = await fetch("http://localhost:8000/api/v1/product/"); // Adjust the API endpoint based on your routes
-        if (!response.ok) {
-          throw new Error("Failed to fetch products");
-        }
-        this.products = await response.json();
-      } catch (error) {
-        console.error(error);
-        // Handle error, such as displaying an error message to the user
-      }
+    fetchProducts() {
+      axios
+        .get("http://localhost:8000/api/v1/product/", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        })
+        .then((response) => {
+          this.products = response.data.data;
+        })
+        .catch((error) => {
+          console.error("Error fetching product:", error);
+        });
     },
-    editProduct(product) {
-      this.$router.push({ name: "edit-product", params: { id: product.id } });
+    editProduct(id) {
+      this.$router.push(`/editproduct/${id}`);
     },
-    async deleteProduct(product) {
-      try {
-        const response = await fetch(
-          `http://localhost:8000/api/v1/product/${product.id}`,
-          {
-            method: "DELETE",
-          }
-        );
-        if (!response.ok) {
-          throw new Error("Failed to delete product");
-        }
-        // Remove the deleted product from the products array
-        this.products = this.products.filter((p) => p.id !== product.id);
-      } catch (error) {
-        console.error(error);
-        // Handle error, such as displaying an error message to the user
+    deleteProduct(id) {
+      if (confirm("Are you sure you want to delete this category?")) {
+        // Send delete request to API
+        axios
+          .delete(`http://localhost:8000/api/v1/product/${id}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          })
+          .then(() => {
+            // If successful, fetch categories again to update the list
+            this.fetchProducts();
+          })
+          .catch((error) => {
+            console.error("Error deleting product:", error);
+          });
       }
     },
   },
