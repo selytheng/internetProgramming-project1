@@ -14,9 +14,6 @@ import CartVue from "@/views/Cart.vue";
 import addCategoryVue from "@/views/addCategory.vue";
 import CategoryTableVue from "@/views/CategoryTable.vue";
 import EditCategoryVue from "@/views/EditCategory.vue";
-import AddProductVue from "@/views/AddProduct.vue";
-import ProductTableVue from "@/views/ProductTable.vue";
-import EditProductVue from "@/views/EditProduct.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -96,21 +93,6 @@ const router = createRouter({
       path: "/editcategory/:id",
       name: "Edit cate",
       component: EditCategoryVue,
-    },
-    {
-      path: "/addproduct",
-      name: "add Product",
-      component: AddProductVue,
-    },
-    {
-      path: "/product",
-      name: "Product",
-      component: ProductTableVue,
-    },
-    {
-      path: "/editproduct/:id",
-      name: "edit Product",
-      component: EditProductVue,
     },
   ],
 });
